@@ -1,0 +1,22 @@
+github fork：
+（1）准备一个本地目录，并克隆自己fork的项目到本地。
+	git clone https://github.com/fromfield/spring-boot-practice.git
+（2）然后cd 进入仓库（这里我直接进入项目根目录下），执行命令：（我们可以看到，只有我们自己的远程仓库）
+	git remote -v
+（3）下面clone原项目到该仓库（hunter 相当于一个别名，名字随便取。）
+	git remote add hunter https://github.com/iTriumph/spring-boot-practice.git
+	git remote -v
+（4）这时有两个远程分支，我们继续 fetch，然后把原项目更新的内容fetch到本地
+	git fetch hunter
+（5）查看下分支：
+	git branch -av
+（6）一个本地分支master，三个远程分支，合并hunter/master
+	git checkout master
+	git merge hunter/master
+（7）如果有冲突的话，需要丢掉本地分支：
+	git reset –hard hunter/master
+（8）这时你的当前本地的项目变成和原作者的主项目一样了，可以把它提交到你的GitHub库
+	git commit -am ‘更新到原作者的主分支’
+	git push origin 
+	git push -u origin master -f –强制提交
+
